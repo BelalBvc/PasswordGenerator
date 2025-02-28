@@ -11,7 +11,15 @@
   <label for="fname">Nome utente:</label><br>
   <input type="text" id="fname" placeholder="Nome Utente" name="fname" required><br><br>
   <label for="pw_lenght">Lunghezza password:</label><br>
-  <input type="number" id="pw_lenght" min=6 max =20 name="pw_lenght">
+  <input type="number" id="pw_lenght" min=6 max =20 name="pw_lenght"> <br>
+  <input type="checkbox" id="Spec" name="Spec" value="True">
+  <label for="Spec"> Speciali</label><br>
+  <input type="checkbox" id="Numeri" name="Numeri" value="True">
+  <label for="Numeri"> Numeri</label><br>
+  <input type="checkbox" id="Maiuscole" name="Maiuscole" value="True">
+  <label for="Maiuscole"> Maiuscole</label><br>
+  <input type="checkbox" id="Minuscole" name="Minuscole" value="True">
+  <label for="Minuscole"> Minuscole</label><br>
   <br>
 
   <input type="submit" value="genera la password"> 
@@ -56,6 +64,10 @@ label{
         font-size: 20px;
         resize: none;
     }
+    input[type="checkbox"]{
+  width: 20px; 
+  height: 20px; 
+}
     input[type="number"]{
         width: 10%;
         padding: 10px 15px;

@@ -1,14 +1,35 @@
 <?php
 
 $username = $_POST['fname'];
-$stringaPass = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+$specialChars = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
+$numbers = '0123456789';
+$uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+$poolDiCaratteri ='';
+
 $pwLen = $_POST['pw_lenght'];
 
 $stringaVuota ="";
 
+if(isset($_POST['Spec'])){
+    $poolDiCaratteri = $poolDiCaratteri . $specialChars;
+}
+
+if(isset($_POST['Numeri'])){
+    $poolDiCaratteri = $poolDiCaratteri . $numbers;
+}
+
+if(isset($_POST['Maiuscole'])){
+    $poolDiCaratteri = $poolDiCaratteri . $uppercaseLetters;
+}
+
+if(isset($_POST['Minuscole'])){
+    $poolDiCaratteri = $poolDiCaratteri . $lowercaseLetters;
+}
+
 for($i = 0; $i<$pwLen;$i = $i +1){
-    $chars = str_split($stringaPass);
-    $numRan = rand(0,count($chars));
+    $chars = str_split($poolDiCaratteri);
+    $numRan = rand(0,count($chars)-1);
     $stringaVuota = $stringaVuota . $chars[$numRan];
 }
 ?>
