@@ -26,6 +26,24 @@
 
 </form>
 
+<script>
+document.getElementById("formUtente").addEventListener("submit", function(event) {
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let almenoUnoSelezionato = false;
+
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            almenoUnoSelezionato = true;
+        }
+    });
+
+    if (!almenoUnoSelezionato) {
+        event.preventDefault(); 
+        alert("Seleziona almeno un tipo di carattere per la password!");
+    }
+});
+</script>
+
 <style>
 body {
     width: 100vw;
