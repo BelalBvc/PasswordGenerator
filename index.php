@@ -7,11 +7,13 @@
 </head>
 <body>
 
+<?php include "partials/header.php"; ?>
+
 <form action="password.php" method="POST" id="formUtente">
   <label for="fname">Nome utente:</label><br>
   <input type="text" id="fname" placeholder="Nome Utente" name="fname" required><br><br>
   <label for="pw_lenght">Lunghezza password:</label><br>
-  <input type="number" id="pw_lenght" min=6 max =20 name="pw_lenght"> <br>
+  <input type="number" id="pw_lenght" min=6 max =20 name="pw_lenght" required> <br>
   <input type="checkbox" id="Spec" name="Spec" value="True">
   <label for="Spec"> Speciali</label><br>
   <input type="checkbox" id="Numeri" name="Numeri" value="True">
@@ -26,15 +28,19 @@
 
 </form>
 
+<?php include "partials/footer.php"; ?>
+
 <script>
 document.getElementById("formUtente").addEventListener("submit", function(event) {
     let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     let almenoUnoSelezionato = false;
+   
+
+ 
+    
 
     checkboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
-            almenoUnoSelezionato = true;
-        }
+        if (checkbox.checked) []
     });
 
     if (!almenoUnoSelezionato) {
@@ -63,7 +69,7 @@ form {
     width: 60vh;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 80%;
     transform: translate(-50%, -50%);
 }
 label{
@@ -96,6 +102,10 @@ label{
         border-radius: 4px;
         font-size: 20px;
         resize: none;
+        
+    }
+    input[type="checkbox"]:hover{
+        cursor:pointer;
     }
     textarea {
         height: 80px;
@@ -109,11 +119,11 @@ label{
         font-size: 14px;
         cursor: pointer;
         width: 100%;
-        transition: transform 0.8s ease, box-shadow 0.3s ease; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
     }
     input[type="submit"]:hover {
         background: rgb(243, 162, 105);
-        transform: scale(1.05);
+        transform: scale(1.02);
     }
     </style>
     
